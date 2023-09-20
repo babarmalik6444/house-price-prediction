@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <!--   Header   -->
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <h5 class="header center green-text small">Binanry Classification with TensorFlow.js</h5>
+        <div class="row center">
+          <h6 class="header col s12 light">Train a model to predict the class.</h6>
+        </div>
+      </div>
+    </div>
+    
+    <!--   Misc buttons   -->
+    <div class="section no-pad-bot light-green lighten-4">
+      <div class="container">
+        <div class="row center">
+          <button id="toggle-button" class="waves-effect waves-light light-green btn-small" onclick="toggleVisor()">Toggle Visor</button>
+          <br/><br/>
+        </div>
+      </div>
+    </div>
+    
+    <!--   Main functionality   -->
+    <div class="container">
+      <div class="section">
+    
+        <div class="row">
+          <!--   Training   -->
+          <div class="col s12 m6">
+            <div class="icon-block">
+              <h3 class="center light-green-text"><i class="material-icons" style="font-size: 2em">build</i></h3>
+              <h5 class="center">Train & Test</h5>
+    
+              <p class="light"></p>
+    
+              <div>
+                <p><label>Training status:</label></p>
+                <pre class="grey lighten-4" style="overflow-x: auto"><em id="model-status">Loading data...</em></pre>
+    
+                <p><label>Testing status:</label></p>
+                <pre class="grey lighten-4" style="overflow-x: auto"><em id="testing-status">Not yet tested</em></pre>
+    
+                <button autocomplete="off" id="train-button" class="waves-effect light-green waves-light btn" disabled onclick="train()">Train New Model</button>
+                <button autocomplete="off" id="test-button" class="waves-effect light-green waves-light btn" disabled onclick="test()">Test Model</button>
+              </div>
+              <br/>
+    
+              <div>
+                <button autocomplete="off" id="load-button" class="waves-effect light-green waves-light btn-small" disabled onclick="load()">Load Model</button>
+                <button autocomplete="off" id="save-button" class="waves-effect light-green waves-light btn-small" disabled onclick="save()">Save Model</button>
+              </div>
+    
+            </div>
+          </div>
+    
+            <!--   Prediction   -->
+            <div class="col s12 m6">
+              <div class="icon-block">
+                <h3 class="center light-green-text"><i class="material-icons">timeline</i></h3>
+                <h5 class="center">Predict</h5>
+          
+                <label>Square Feet: <input type="number" id="prediction-input-1" placeholder="2000"/></label>
+                <label>House Price ($): <input type="number" id="prediction-input-2" placeholder="1000000"/></label>
+                <button autocomplete="off" id="predict-button" class="waves-effect light-green waves-light btn" disabled onclick="predict()">Predict class</button>
+                <p><strong id="prediction-output"></strong></p>
+              </div>
+            </div>
+        </div>
+    
+      </div>
+    </div>
+  </body>
+</html>
